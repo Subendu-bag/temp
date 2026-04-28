@@ -1,0 +1,187 @@
+// Create a Label 
+import javax.swing.*; 
+class LabelExample   
+{   
+public static void main(String args[]){   
+JFrame f= new JFrame("Label Example");   
+JLabel l1,l2;   
+l1=new JLabel("First Label.");   
+l1.setBounds(50,50, 100,30);   
+l2=new JLabel("Second Label.");   
+l2.setBounds(50,100, 100,30);   
+f.add(l1); f.add(l2);   
+f.setSize(300,300);   
+f.setLayout(null);   
+f.setVisible(true);   
+}   
+} 
+
+
+//Create a Password Field  
+import javax.swing.*;     
+import java.awt.event.*;   
+public class PasswordFieldExample {   
+public static void main(String[] args) {     
+JFrame f = new JFrame("Password Field Example");     
+final JLabel label = new JLabel();             
+label.setBounds(20, 150, 250, 50);   
+final JPasswordField value = new JPasswordField();    
+value.setBounds(100, 75, 100, 30);    
+JLabel l1 = new JLabel("Username:");     
+l1.setBounds(20, 20, 80, 30);     
+JLabel l2 = new JLabel("Password:");     
+l2.setBounds(20, 75, 80, 30);     
+JButton b = new JButton("Login");   
+b.setBounds(100, 120, 80, 30);     
+final JTextField text = new JTextField();   
+text.setBounds(100, 20, 100, 30);     
+f.add(value);  
+f.add(l1);  
+f.add(label);  
+f.add(l2);  
+f.add(b);                  
+f.add(text); 
+f.setSize(300, 300);     
+f.setLayout(null);     
+f.setVisible(true);    
+b.addActionListener(new ActionListener() {   
+public void actionPerformed(ActionEvent e) {        
+String data = "Username: " + text.getText();   
+data += ", Password: " + new String(value.getPassword());    
+label.setText(data);           
+}   
+});   
+}   
+}  
+
+
+// A program to show use of CheckBox 
+import javax.swing.*;   
+public class CheckBoxExample   
+{   
+CheckBoxExample(){   
+JFrame f= new JFrame("CheckBox Example");   
+JCheckBox checkBox1 = new JCheckBox("C++");   
+checkBox1.setBounds(100,100, 50,50);   
+JCheckBox checkBox2 = new JCheckBox("Java", true);   
+checkBox2.setBounds(100,150, 50,50);  
+// Add this below the checkboxes 
+JButton b = new JButton("Show"); 
+b.setBounds(100, 200, 100, 30); 
+f.add(b); 
+// Label to display selection 
+JLabel label = new JLabel(); 
+label.setBounds(100, 250, 200, 30); 
+f.add(label); 
+// Action listener 
+b.addActionListener(e -> { 
+String msg = "Selected: "; 
+if (checkBox1.isSelected()) msg += "C++ "; 
+if (checkBox2.isSelected()) msg += "Java "; 
+label.setText(msg); 
+}); 
+f.add(checkBox1);   
+f.add(checkBox2);   
+f.setSize(400,400);   
+f.setLayout(null);   
+f.setVisible(true);   
+}   
+public static void main(String args[]){   
+new CheckBoxExample();   
+} 
+}   
+
+
+// A program to show use of RadioButton 
+import javax.swing.*;     
+public class RadioButtonExample {     
+JFrame f;     
+RadioButtonExample(){     
+f=new JFrame();      
+JRadioButton r1=new JRadioButton("A) Male");     
+JRadioButton r2=new JRadioButton("B) Female");  
+// Add this below the RadioButton 
+JButton b = new JButton("Show"); 
+b.setBounds(100, 200, 100, 30); 
+f.add(b); 
+// Label to display selection 
+JLabel label = new JLabel(); 
+label.setBounds(100, 250, 200, 30); 
+f.add(label); 
+// Action listener 
+b.addActionListener(e -> { 
+String msg = "Selected: "; 
+if (r1.isSelected()) msg += "Male "; 
+if (r2.isSelected()) msg += "Female "; 
+label.setText(msg); 
+}); 
+r1.setBounds(75,50,100,30);     
+r2.setBounds(75,100,100,30);     
+ButtonGroup bg=new ButtonGroup();     
+bg.add(r1);bg.add(r2);     
+f.add(r1);f.add(r2);       
+f.setSize(300,300);     
+f.setLayout(null);     
+f.setVisible(true);     
+}     
+public static void main(String[] args) {     
+new RadioButtonExample();     
+}} 
+
+
+// A program to show use of ComboBox 
+import javax.swing.*;  
+import java.awt.event.*;    
+public class ComboBoxExample {     
+JFrame f;     
+ComboBoxExample(){     
+f=new JFrame("ComboBox Example");     
+String country[]={"India","Aus","U.S.A","England","Newzealand"};         
+JComboBox cb=new JComboBox(country);  
+JLabel label = new JLabel("Select a country"); 
+label.setBounds(50, 100, 200, 30); 
+f.add(cb);     
+f.add(label);   
+cb.addActionListener(new ActionListener() { 
+public void actionPerformed(ActionEvent e) { 
+String selected = (String) cb.getSelectedItem(); 
+label.setText("Selected: " + selected); 
+} 
+}); 
+cb.setBounds(50, 50,90,20);     
+f.add(cb);         
+f.setLayout(null);     
+f.setSize(400,500);     
+f.setVisible(true);          
+}     
+public static void main(String[] args) {     
+new ComboBoxExample();          
+}     
+} 
+
+
+// A program to create a menu bar and show menu items 
+import javax.swing.*;   
+class MenuExample{   
+JMenu menu, submenu;   
+JMenuItem i1, i2, i3, i4, i5;   
+MenuExample(){   
+JFrame f= new JFrame("Menu and MenuItem Example");   
+JMenuBar mb=new JMenuBar();   
+menu=new JMenu("Menu");   
+submenu=new JMenu("Sub Menu");   
+i1=new JMenuItem("Item 1");i2=new JMenuItem("Item 2");   
+i3=new JMenuItem("Item 3");i4=new JMenuItem("Item 4");   
+menu.add(i1); menu.add(i2); menu.add(i3);   
+submenu.add(i4); 
+menu.add(submenu);         
+mb.add(menu);   
+f.setJMenuBar(mb);   
+f.setSize(400,400);       
+f.setLayout(null);   
+f.setVisible(true);   
+} 
+public static void main(String args[]){   
+new MenuExample();   
+} 
+} 
